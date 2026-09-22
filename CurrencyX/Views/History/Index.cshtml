@@ -1,0 +1,40 @@
+﻿@model IEnumerable<CurrencyConverter.Models.ConversionHistory>
+
+@{
+    ViewData["Title"] = "Conversion History";
+}
+
+<div class="container mt-4">
+
+    <h2>Conversion History</h2>
+
+    <table class="table table-bordered">
+
+        <thead>
+            <tr>
+                <th>Amount</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Exchange Rate</th>
+                <th>Converted Amount</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Amount</td>
+                    <td>@item.FromCurrency</td>
+                    <td>@item.ToCurrency</td>
+                    <td>@item.ExchangeRate</td>
+                    <td>@item.ConvertedAmount</td>
+                    <td>@item.CreatedAt.ToLocalTime()</td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+
+</div>
